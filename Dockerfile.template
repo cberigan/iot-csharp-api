@@ -1,0 +1,16 @@
+
+FROM resin/%%RESIN_MACHINE_NAME%%-node:8
+
+
+WORKDIR /usr/src/app
+
+COPY dotnet-install.sh dotnet-install.sh
+
+#RUN JOBS=MAX ./dotnet-install.sh -c Current
+
+COPY . ./
+
+
+ENV INITSYSTEM on
+
+CMD ["dotnet", "run"]
